@@ -26,10 +26,19 @@ def accounting(path):
         #checks if the sale in the report is correct, and if not print how much they paid and how much was expected
 
         if correct_sale != amount_paid:
-            print(f"{customer} paid {amount_paid:.2f}, expected {correct_sale:.2f}.")
+            print(f"{customer} paid ${amount_paid:.2f}, expected ${correct_sale:.2f}.")
+        
+        #if the customer overpaid:
+        if correct_sale < amount_paid:
+            difference = amount_paid - correct_sale
+            print(f"{customer} has overpaid by ${difference:.2f}")
+            print("\n")
+        elif correct_sale > amount_paid:
+            amount_owed = correct_sale - amount_paid
+            print(f"{customer} owes ${amount_owed:.2f}")
+            print("\n")
 
-        #if correct_sale < 
-
+    
 
     order_log.close()
     
